@@ -36,7 +36,7 @@ int LLISTABID_inserirOrdenat (Llista * l, Element e2){
     l->pdi = l->pri->seg;
 
     while (l->pdi->seg != NULL && !trobat ){
-        if(l->pdi->seg->e.numero > e2.numero){
+        if(l->pdi->seg->e.numero <= e2.numero){
             l->pdi = l->pdi->seg;
         }else{
             trobat = 1;
