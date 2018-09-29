@@ -1,7 +1,11 @@
 #include "list.h"
 #include <stdio.h>
 
+/****************************************************/
+//Aqui tenim totes les operacions del mòdul LlistaBID.
+/****************************************************/
 
+//Funció per crear una nova llista.
 Llista	LLISTABID_crea () {
     Llista l;
     int err = 1;
@@ -29,14 +33,14 @@ Llista	LLISTABID_crea () {
     return l;
 }
 
-
+//Funció per inserir un nou node de forma ordenada comparant els int dels elements.
 int LLISTABID_inserirOrdenat (Llista * l, Element e2){
     int trobat = 0;
 
     l->pdi = l->pri->seg;
 
     while (l->pdi->seg != NULL && !trobat ){
-        if(l->pdi->seg->e.numero > e2.numero){
+        if(l->pdi->seg->e.numero <= e2.numero){
             l->pdi = l->pdi->seg;
         }else{
             trobat = 1;
@@ -48,7 +52,7 @@ int LLISTABID_inserirOrdenat (Llista * l, Element e2){
     return 1;
 }
 
-
+//Funció per inserir un nou node darrere/dreta del PDI amb el contingut element.
 int	LLISTABID_inserirDarrere (Llista * l, Element e) {    
     Node * n;
     if (l->pdi == l->ult) return 0;
@@ -68,6 +72,7 @@ int	LLISTABID_inserirDarrere (Llista * l, Element e) {
     return 1;
 }
 
+//Funció per inserir un nou node davant/esquerra del PDI amb el contingut element.
 int LLISTABID_inserirDavant (Llista * l, Element e) {
     Node * n;
 
@@ -88,10 +93,10 @@ int LLISTABID_inserirDavant (Llista * l, Element e) {
     return 1;
 }
 
-
+//Funció per consultar la element situat sobre el PDI de la nostre llista.
 void LLISTABID_consulta (Llista l) {
 
-   Element e;
+    Element e;
     if(l.pdi->ant != NULL && l.pdi->seg != NULL){
         e = l.pdi->e;
     }
@@ -99,7 +104,7 @@ void LLISTABID_consulta (Llista l) {
     printf("Numero: %d \n",e.numero);
 }
 
-
+//Funció per eliminar un node de la nostre llista.
 int LLISTABID_elimina (Llista * l) {
     Node * aux;
 
@@ -118,8 +123,9 @@ int LLISTABID_elimina (Llista * l) {
     return 1;
 }
 
-
+//Funcio per avancar el PDI en la nostre llista.
 int LLISTABID_avanca (Llista * l) {
+
     if (l->pdi->seg == NULL) {
         return 0;
     }
@@ -128,7 +134,7 @@ int LLISTABID_avanca (Llista * l) {
     return 1;
 }
 
-
+//Funcio per tirar enrere una posició el PDI en la nostre llista.
 int LLISTABID_retrocedeix (Llista * l) {
     if (l->pdi->ant == NULL) {
         return 0;
@@ -138,36 +144,37 @@ int LLISTABID_retrocedeix (Llista * l) {
     return 1;
 }
 
-
+//Funció per posar el nostre PDI en primera posicio.
 int LLISTABID_vesInici (Llista * l) {
+
     l->pdi = l->pri->seg;
     return 1;
 }
 
-
+//Funcio per posar el nostre PDI en ultima posicio.
 int LLISTABID_vesFinal (Llista * l) {
 
     l->pdi = l->ult->ant;
     return 1;
 }
 
-
+//Funcio per comprovar si la llista esta buida.
 int LLISTABID_buida (Llista l) {
   
     return l.pri->seg == l.ult;
 }
 
-
+//Funcio per comprovar que el nostre PDI esta situat al principi.
 int LLISTABID_inici (Llista l) {
     return l.pdi == l.pri;
 }
 
-
+//Funcio per comprovar que el nostre PDI esta situat al final.
 int LLISTABID_final (Llista l) {
     return l.pdi == l.ult;
 }
 
-
+//Funcio per destruir la nostre llista.
 void LLISTABID_destrueix (Llista * l) {
     Node * aux;
 

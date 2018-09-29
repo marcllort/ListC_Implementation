@@ -33,3 +33,5 @@ int 		LLISTABID_buida (Llista l);
 int 		LLISTABID_inici (Llista l);
 int 		LLISTABID_final (Llista l);
 void 		LLISTABID_destrueix (Llista * l);
+
+
