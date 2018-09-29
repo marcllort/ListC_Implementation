@@ -79,59 +79,93 @@ int LLISTABID_inserirDavant (Llista * l, Element e) {
 
 void LLISTABID_consulta (Llista l) {
 
-   
+   Element e;
+    if(l.pdi->ant != NULL && l.pdi->seg != NULL){
+        e = l.pdi->e;
+    }
+    
+    printf("Numero: %d \n",e.numero);
 }
 
 
 int LLISTABID_elimina (Llista * l) {
-    
+    Node * aux;
+
+    if (l->pdi == l->pri || l->pdi == l->ult) {
+        return 0;
+    }
+    aux = l->pdi;
+
+    l->pdi->ant->seg = l->pdi->seg;
+    l->pdi->seg->ant = l->pdi->ant;
+    l->pdi = l->pdi->seg;
+    l->elements--;
+
+    free(aux);
 
     return 1;
 }
 
 
 int LLISTABID_avanca (Llista * l) {
+    if (l->pdi->seg == NULL) {
+        return 0;
+    }
 
-    
+    l->pdi = l->pdi->seg;
     return 1;
 }
 
 
 int LLISTABID_retrocedeix (Llista * l) {
+    if (l->pdi->ant == NULL) {
+        return 0;
+    }
 
-    
+    l->pdi = l->pdi->ant;
     return 1;
 }
 
 
 int LLISTABID_vesInici (Llista * l) {
-
+    l->pdi = l->pri->seg;
     return 1;
 }
 
 
 int LLISTABID_vesFinal (Llista * l) {
 
+    l->pdi = l->ult->ant;
     return 1;
 }
 
 
 int LLISTABID_buida (Llista l) {
   
-    return 1;
+    return l.pri->seg == l.ult;
 }
 
 
 int LLISTABID_inici (Llista l) {
-    return 1;
+    return l.pdi == l.pri;
 }
 
 
 int LLISTABID_final (Llista l) {
-    return 1;
+    return l.pdi == l.ult;
 }
 
 
 void LLISTABID_destrueix (Llista * l) {
-    
+    Node * aux;
+
+    while (l->pri != NULL) {
+        aux = l->pri;
+        l->pri = l->pri->seg;
+        free(aux);
+    }
+
+    l->pri = NULL;
+    l->ult = NULL;
+    l->pdi = NULL;
 }
