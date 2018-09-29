@@ -32,7 +32,7 @@ int main (int argc, char** argv) {
 	
 	
 
-  	ok = LLISTABID_vesFinal (&llista);
+  	ok = LLISTABID_vesInici (&llista);
 	for(i = 0 ; i < 10+3 ; i++){
 		LLISTABID_consulta (llista);
 		LLISTABID_avanca (&llista);
