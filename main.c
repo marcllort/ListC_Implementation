@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "list.h"
 
+#define llargaria 10 
+#define numAfegir 3 
 
 
 int main (int argc, char** argv) {
@@ -12,8 +14,8 @@ int main (int argc, char** argv) {
 	llista = LLISTABID_crea ();
   	ok = LLISTABID_vesInici (&llista);
 
-	
-  	for(i = 0 ; i < 10; i++){
+	printf("Estat llista inicial: \n\n");
+  	for(i = 0 ; i < llargaria; i++){
 		e0.numero=i+2;
 
 		ok = LLISTABID_inserirDavant (&llista, e0);
@@ -21,7 +23,6 @@ int main (int argc, char** argv) {
 	}
 
 
-	//Numeros a afegir ordenats
 	e1.numero=1;
 	e2.numero=6;
 	e3.numero=16;
@@ -30,13 +31,15 @@ int main (int argc, char** argv) {
 	ok = LLISTABID_inserirOrdenat (&llista, e2);
 	ok = LLISTABID_inserirOrdenat (&llista, e3);
 	
-	
+	printf("\n\nEstat llista final: \n\n");
 
   	ok = LLISTABID_vesFinal (&llista);
-	for(i = 0 ; i < 10+3 ; i++){
+	for(i = 0 ; i < llargaria+3 ; i++){
 		LLISTABID_consulta (llista);
 		LLISTABID_retrocedeix (&llista);
 	}
+	printf("\n");
 
 return 1;
 }
+
