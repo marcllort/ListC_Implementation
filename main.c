@@ -32,10 +32,10 @@ int main (int argc, char** argv) {
 	
 	
 
-  	ok = LLISTABID_vesInici (&llista);
+  	ok = LLISTABID_vesFinal (&llista);
 	for(i = 0 ; i < 10+3 ; i++){
 		LLISTABID_consulta (llista);
-		LLISTABID_avanca (&llista);
+		LLISTABID_retrocedeix (&llista);
 	}
 
 return 1;
