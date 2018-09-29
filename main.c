@@ -33,10 +33,10 @@ int main (int argc, char** argv) {
 	
 	printf("\n\nEstat llista final: \n\n");
 
-  	ok = LLISTABID_vesFinal (&llista);
+  	ok = LLISTABID_vesInici (&llista);
 	for(i = 0 ; i < llargaria+3 ; i++){
 		LLISTABID_consulta (llista);
-		LLISTABID_retrocedeix (&llista);
+		LLISTABID_avanca (&llista);
 	}
 	printf("\n");
 
