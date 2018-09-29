@@ -15,6 +15,7 @@ int main (int argc, char** argv) {
   	ok = LLISTABID_vesInici (&llista);
 
 	printf("Estat llista inicial: \n\n");
+    //Mirem estat inicial de la llista
   	for(i = 0 ; i < llargaria; i++){
 		e0.numero=i+2;
 
@@ -23,6 +24,7 @@ int main (int argc, char** argv) {
 	}
 
 
+	//Numeros a afegir ordenats
 	e1.numero=1;
 	e2.numero=6;
 	e3.numero=16;
@@ -42,4 +44,3 @@ int main (int argc, char** argv) {
 
 return 1;
 }
-
