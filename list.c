@@ -31,7 +31,19 @@ Llista	LLISTABID_crea () {
 
 
 int LLISTABID_inserirOrdenat (Llista * l, Element e2){
-    
+    int trobat = 0;
+
+    l->pdi = l->pri->seg;
+
+    while (l->pdi->seg != NULL && !trobat ){
+        if(l->pdi->seg->e.numero > e2.numero){
+            l->pdi = l->pdi->seg;
+        }else{
+            trobat = 1;
+        }
+    }
+
+    LLISTABID_inserirDavant(l,e2);
     
     return 1;
 }
