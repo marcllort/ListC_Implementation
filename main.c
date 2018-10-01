@@ -25,7 +25,7 @@ int main (int argc, char** argv) {
 
 
 	//Numeros a afegir ordenats
-	e1.numero=1;
+	e1.numero=-1;
 	e2.numero=6;
 	e3.numero=16;
 
